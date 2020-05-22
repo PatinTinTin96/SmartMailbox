@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item
+    android:id="@+id/Buzon"
+    android:title="Buzón"
+    android:icon="@drawable/ic_build_black"/>
+    <item
+        android:id="@+id/Home"
+        android:title="Inicio"
+        android:icon="@drawable/ic_home"/>
+    <item
+        android:id="@+id/PerfilUsuario"
+        android:title="Mi Perfil"
+        android:icon="@drawable/ic_account_box"/>
+
+
+</menu>
