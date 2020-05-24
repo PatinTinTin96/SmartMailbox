@@ -20,6 +20,7 @@ public class Principal extends AppCompatActivity implements BottomNavigationView
         setContentView(R.layout.activity_principal);
        bottomNavigationView=findViewById(R.id.botton_navigation);
        bottomNavigationView.setOnNavigationItemSelectedListener(this);
+        bottomNavigationView.setSelectedItemId(R.id.Home);
     }
 
 
@@ -32,9 +33,7 @@ public class Principal extends AppCompatActivity implements BottomNavigationView
                 overridePendingTransition(0,0);
                 return (true);
             case R.id.Home:
-                Intent i = new Intent(Principal.this,Principal.class);
-                startActivity(i);
-                overridePendingTransition(0,0);
+
                 return (true);
             case R.id.PerfilUsuario:
                 Intent p = new Intent(Principal.this,PerfilUsuario.class);

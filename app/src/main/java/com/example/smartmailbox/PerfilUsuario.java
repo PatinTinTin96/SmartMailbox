@@ -16,6 +16,7 @@ public class PerfilUsuario extends AppCompatActivity implements BottomNavigation
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil_usuario);
         bottomNavigationView=findViewById(R.id.botton_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.PerfilUsuario);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
     }
 
@@ -34,9 +35,7 @@ public class PerfilUsuario extends AppCompatActivity implements BottomNavigation
                 overridePendingTransition(0,0);
                 return (true);
             case R.id.PerfilUsuario:
-                Intent p = new Intent(PerfilUsuario.this,PerfilUsuario.class);
-                startActivity(p);
-                overridePendingTransition(0,0);
+
                 return (true);
 
         }

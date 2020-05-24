@@ -17,6 +17,7 @@ public class Buzon extends AppCompatActivity implements BottomNavigationView.OnN
         setContentView(R.layout.activity_buzon);
 
         bottomNavigationView=findViewById(R.id.botton_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.Buzon);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
     }
 
@@ -24,9 +25,6 @@ public class Buzon extends AppCompatActivity implements BottomNavigationView.OnN
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.Buzon:
-                Intent b = new Intent(Buzon.this,Buzon.class);
-                startActivity(b);
-                overridePendingTransition(0,0);
                 return (true);
             case R.id.Home:
                 Intent i = new Intent(Buzon.this,Principal.class);
