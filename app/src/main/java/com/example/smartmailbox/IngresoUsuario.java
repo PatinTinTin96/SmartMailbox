@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -16,45 +17,41 @@ import org.w3c.dom.Text;
 public class IngresoUsuario extends AppCompatActivity {
 TextView txtCrearCuenta;
 EditText  edtUsuario,edtContraseña;
-Button btnLogin;
-ImageView imgLogo;
+Button btnLogin,btnCrearUsuario;
+ImageView ImagenLogo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_ingreso_usuario);
-        txtCrearCuenta= findViewById(R.id.txtCrearCuenta);
-        edtUsuario = findViewById(R.id.edtUsuario);
-        edtContraseña= findViewById(R.id.edtContraseña);
-        btnLogin= findViewById(R.id.btnLogin);
-        imgLogo = findViewById(R.id.imgLogo);
-
-        txtCrearCuenta.setOnClickListener(new View.OnClickListener() {
+        btnCrearUsuario=findViewById(R.id.btnCrearUsuario);
+        btnLogin=findViewById(R.id.btnLogin);
+        btnCrearUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CrearCuenta();
+                registrar();
             }
         });
-
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                logearse();
+                logear();
             }
         });
 
 
+
     }
 
-    private void logearse() {
-        Intent login = new Intent(IngresoUsuario.this,Principal.class);
-        startActivity(login);
+    private void logear() {
+        Intent l = new Intent(IngresoUsuario.this,Principal.class);
+        startActivity(l);
     }
 
-
-    private void CrearCuenta() {
-        Intent cuenta = new Intent(IngresoUsuario.this,RegistroUsuario.class);
-        startActivity(cuenta);
+    private void registrar() {
+        Intent r = new Intent(IngresoUsuario.this,RegistroUsuario.class);
+        startActivity(r);
     }
 
 
