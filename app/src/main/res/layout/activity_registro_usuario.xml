@@ -7,29 +7,39 @@
     tools:context=".RegistroUsuario"
     android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/ImagenLogo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:background="@drawable/logo3"
-        />
-    <TextView
-        android:id="@+id/TextoLogo"
-        android:textSize="40sp"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registro"
-        android:fontFamily="@font/bangers"
-        />
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/TextoLogo"
+            android:layout_width="259dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/bangers"
+            android:text="Registro:"
+            android:textSize="40sp" />
+        <ImageView
+            android:id="@+id/ImagenLogo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/logo2"
+
+            />
+
+    </LinearLayout>
 
 
-
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="460dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingTop="20dp"
+        android:paddingTop="25dp"
         >
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/nombreUsuario"
@@ -95,6 +105,25 @@
                 android:inputType="number">
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Spinner>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/direccionUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Dirección:"
+            android:background="@drawable/edt_border"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text">
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
 
             android:id="@+id/contraseñaUsuario"
@@ -137,20 +166,23 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-        <Button
-            android:id="@+id/btnRegistrar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/btn_border"
-            android:text="Registrar"
-            android:textColor="@color/cardview_light_background"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            />
-
 
 
     </LinearLayout>
+</ScrollView>
+
+
+
+    <Button
+        android:id="@+id/btnRegistrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_border"
+        android:text="Registrar"
+        android:textColor="@color/cardview_light_background"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        />
 
 
 
