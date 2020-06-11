@@ -5,14 +5,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.smartmailbox.Modelo.DbConnection;
 
 import org.w3c.dom.Text;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 public class IngresoUsuario extends AppCompatActivity {
 TextView txtCrearCuenta;
@@ -43,6 +50,8 @@ ImageView ImagenLogo;
 
 
     }
+
+
 
     private void logear() {
         Intent l = new Intent(IngresoUsuario.this,Principal.class);
