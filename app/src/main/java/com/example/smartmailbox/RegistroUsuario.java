@@ -24,6 +24,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class RegistroUsuario extends AppCompatActivity {
@@ -31,15 +32,12 @@ public class RegistroUsuario extends AppCompatActivity {
  Spinner ddlComunas;
  TextInputLayout edtNombreUsuario,edtNickUsuario,edtEmailUsuario,edtTelefonoUsuario,edtDireccionUsuario,edtContraseña,edtConfirmarContraseña;
 Button btnRegistrar;
-
-//static int Comuna = 1;
+ArrayList<Comuna> listadosComunas;
+    ArrayList<String> lista;
+static int comuna = 1;
 static int mailbox = 1;
-String nombre ="Patricio";
-String nick ="PatinTinTin";
-String email ="p.p@p.p";
-String tel ="55";
-String dir ="p";
-String pass="123";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,13 +54,10 @@ String pass="123";
         ddlComunas=findViewById(R.id.ddlComuna);
         btnRegistrar=findViewById(R.id.btnRegistrar);
 
-
-
-/*
-        ControlComuna.listaComuna();
-       ArrayAdapter<Comuna> arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, ControlComuna.listaComuna());
+     
+       ArrayAdapter<CharSequence> arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item,ControlComuna.listaComuna());
        ddlComunas.setAdapter(arrayAdapter);
-*/
+
 
         ddlComunas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -86,7 +81,7 @@ String pass="123";
                 String dir = edtDireccionUsuario.getEditText().getText().toString();
                 String pass= edtContraseña.getEditText().getText().toString();
               //  agregarUsuario(edtNombreUsuario.getEditText().toString(),edtNickUsuario.getEditText().toString(),edtEmailUsuario.getEditText().toString(),edtTelefonoUsuario.getEditText().toString(),edtDireccionUsuario.getEditText().toString(),pass,Comuna,mailbox);
-                if (ControlUsuario.agregarUsuario(nombre,nick,email,tel,dir,pass,ddlComunas.getId(),mailbox)){
+                if (ControlUsuario.agregarUsuario(nombre,nick,email,tel,dir,pass,comuna,mailbox)){
                     Toast.makeText(getApplicationContext(),"Exito",Toast.LENGTH_LONG).show();
                 }else {
 
@@ -102,6 +97,8 @@ String pass="123";
 
 
                  */
+
+
 
 
             }
@@ -123,6 +120,15 @@ String pass="123";
         return conn;
     }
     */
+
+    private ArrayList obtenerLista() {
+     lista = new ArrayList<String>();
+     lista.add("Seleccione");
+     for (int i =0;i<lista.size();i++){
+       lista.add(ControlComuna.listaComuna().get(i).getNombreComuna());
+     }
+      return lista;
+    }
 /*
     public  void agregarUsuario(String nombreUsuario, String nickUsuario, String emailUsuario, String telefonoUsuario, String direccionUsuario, String contraseñaUsuario, int comuna,int mailbox){
 

@@ -4,12 +4,12 @@ public class Comuna {
     private int idcomuna;
     private String nombreComuna;
     private Provincia provincia;
-
+/*
     public Comuna(String nombreComuna, Provincia provincia) {
         this.nombreComuna = nombreComuna;
         this.provincia = provincia;
     }
-
+*/
     public String getNombreComuna() {
         return nombreComuna;
     }
