@@ -4,15 +4,21 @@ public class Comuna {
     private int idcomuna;
     private String nombreComuna;
     private Provincia provincia;
-/*
+
     public Comuna(String nombreComuna, Provincia provincia) {
         this.nombreComuna = nombreComuna;
         this.provincia = provincia;
     }
-*/
+
+    public Comuna() {
+
+    }
+
     public String getNombreComuna() {
         return nombreComuna;
     }
+
+
 
     public void setNombreComuna(String nombreComuna) {
         this.nombreComuna = nombreComuna;

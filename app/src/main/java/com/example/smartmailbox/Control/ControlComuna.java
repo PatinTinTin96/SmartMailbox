@@ -1,5 +1,6 @@
 package com.example.smartmailbox.Control;
 
+import android.util.Log;
 import android.widget.ArrayAdapter;
 
 import java.sql.PreparedStatement;
@@ -19,27 +20,42 @@ import static com.example.smartmailbox.Control.ControlUsuario.conn;
 public class ControlComuna {
     public static DbConnection conn = new DbConnection();
 
-    public static ArrayList<Comuna> listaComuna(){
+    public static ArrayList<Comuna> listaComuna() {
         ArrayList<Comuna> comunas = new ArrayList<>();
-        Comuna com = new Comuna();
+        Comuna com = null;
         List<Comuna> listado = new ArrayList();
         try {
             Statement stm = conn.conexion().createStatement();
             ResultSet rs = stm.executeQuery("SELECT nombre_comuna FROM Comuna where id_provincia=25");
-            if(rs.next()){
-              com= new Comuna();
-              com.getNombreComuna();
-              comunas.add(com);
-            }
-                rs.close();
-                stm.close();
+            while (rs.next()) {
+                com = new Comuna();
+                com.setNombreComuna(rs.getString(1));
+                comunas.add(com);
 
+
+            }
+            rs.close();
+            stm.close();
 
 
         } catch (SQLException e) {
 
         }
+
+
         return comunas;
 
+
     }
+
+    public static ArrayList<String> listado() {
+        ArrayList<String> lista = new ArrayList<String>();
+        lista.add("Seleccione");
+        for (int i = 0; i < ControlComuna.listaComuna().size(); i++) {
+            lista.add(ControlComuna.listaComuna().get(i).getNombreComuna());
+        }
+   return lista;
+    }
+
+
 }
