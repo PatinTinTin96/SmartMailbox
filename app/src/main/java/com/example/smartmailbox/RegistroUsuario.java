@@ -33,9 +33,7 @@ public class RegistroUsuario extends AppCompatActivity {
  Spinner ddlComunas;
  TextInputLayout edtNombreUsuario,edtNickUsuario,edtEmailUsuario,edtTelefonoUsuario,edtDireccionUsuario,edtContraseña,edtConfirmarContraseña;
 Button btnRegistrar;
-ArrayList<Comuna> listadosComunas;
-    ArrayList<String> lista;
-static int comuna = 1;
+int comuna;
 static int mailbox = 1;
 
 
@@ -62,6 +60,9 @@ static int mailbox = 1;
         ddlComunas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position!=0){
+                    comuna = position;
+                }
 
 
             }
@@ -80,7 +81,7 @@ static int mailbox = 1;
                 String tel = edtTelefonoUsuario.getEditText().getText().toString();
                 String dir = edtDireccionUsuario.getEditText().getText().toString();
                 String pass = edtContraseña.getEditText().getText().toString();
-                //  agregarUsuario(edtNombreUsuario.getEditText().toString(),edtNickUsuario.getEditText().toString(),edtEmailUsuario.getEditText().toString(),edtTelefonoUsuario.getEditText().toString(),edtDireccionUsuario.getEditText().toString(),pass,Comuna,mailbox);
+
                 if (ControlUsuario.agregarUsuario(nombre, nick, email, tel, dir, pass, comuna, mailbox)) {
                     Toast.makeText(getApplicationContext(), "Exito", Toast.LENGTH_LONG).show();
                 } else {

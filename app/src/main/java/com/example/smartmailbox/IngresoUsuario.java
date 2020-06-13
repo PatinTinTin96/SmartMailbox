@@ -14,7 +14,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.smartmailbox.Control.ControlUsuario;
 import com.example.smartmailbox.Modelo.DbConnection;
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.w3c.dom.Text;
 
@@ -23,7 +25,7 @@ import java.sql.DriverManager;
 
 public class IngresoUsuario extends AppCompatActivity {
 TextView txtCrearCuenta;
-EditText  edtUsuario,edtContraseña;
+TextInputLayout edtUsuario,edtContraseña;
 Button btnLogin,btnCrearUsuario;
 ImageView ImagenLogo;
 
@@ -32,6 +34,8 @@ ImageView ImagenLogo;
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_ingreso_usuario);
+        edtUsuario= findViewById(R.id.IngreseNombre);
+        edtContraseña=findViewById(R.id.IngreseContraseña);
         btnCrearUsuario=findViewById(R.id.btnCrearUsuario);
         btnLogin=findViewById(R.id.btnLogin);
         btnCrearUsuario.setOnClickListener(new View.OnClickListener() {
@@ -54,8 +58,17 @@ ImageView ImagenLogo;
 
 
     private void logear() {
-        Intent l = new Intent(IngresoUsuario.this,Principal.class);
-        startActivity(l);
+        String nombre = edtUsuario.getEditText().getText().toString();
+        String pass = edtContraseña.getEditText().getText().toString();
+        if(ControlUsuario.loginUsuario(nombre,pass)!=null){
+            Toast.makeText(getApplicationContext(), "Exito", Toast.LENGTH_LONG).show();
+            Intent l = new Intent(IngresoUsuario.this,Principal.class);
+            startActivity(l);
+        }else {
+            Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+        }
+
+
     }
 
     private void registrar() {
