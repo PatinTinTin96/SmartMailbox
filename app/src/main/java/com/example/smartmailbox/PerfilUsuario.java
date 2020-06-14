@@ -6,11 +6,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class PerfilUsuario extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     BottomNavigationView bottomNavigationView;
+    TextInputLayout edtnombre,edtNick,edtPass;
+
+    Button btnActualizar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +23,18 @@ public class PerfilUsuario extends AppCompatActivity implements BottomNavigation
         bottomNavigationView=findViewById(R.id.botton_navigation);
         bottomNavigationView.setSelectedItemId(R.id.PerfilUsuario);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
+        edtnombre=findViewById(R.id.edtNombre);
+        edtNick=findViewById(R.id.edtNick);
+        edtPass=findViewById(R.id.edtPass);
+        btnActualizar=findViewById(R.id.btnActualizar);
+
+        Bundle extra = getIntent().getExtras();
+        if(extra!=null){
+            String us = extra.getString("Usuario");
+            edtNick.getEditText().setText(us);
+        }
+
+
     }
 
 

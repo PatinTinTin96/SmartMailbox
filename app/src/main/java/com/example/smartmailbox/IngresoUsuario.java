@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.se.omapi.Session;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -58,11 +59,14 @@ ImageView ImagenLogo;
 
 
     private void logear() {
-        String nombre = edtUsuario.getEditText().getText().toString();
+        String nick = edtUsuario.getEditText().getText().toString();
         String pass = edtContraseña.getEditText().getText().toString();
-        if(ControlUsuario.loginUsuario(nombre,pass)!=null){
+        if(ControlUsuario.loginUsuario(nick,pass)!=null){
+            //Bundle us = new Bundle();
+            //us.putString("Usuario", nick);
             Toast.makeText(getApplicationContext(), "Exito", Toast.LENGTH_LONG).show();
             Intent l = new Intent(IngresoUsuario.this,Principal.class);
+            l.putExtra("Usuario",nick);
             startActivity(l);
         }else {
             Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();

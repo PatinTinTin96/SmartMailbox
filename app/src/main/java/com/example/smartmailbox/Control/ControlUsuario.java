@@ -43,8 +43,7 @@ public class ControlUsuario {
         String estado = null;
         try {
             Statement stm = conn.conexion().createStatement();
-            ResultSet rs = stm.executeQuery("SELECT nombre_usuario FROM Usuario where alias_usuario='" + nick + "' and contrasena_usuario='" + pass + "'");
-
+            ResultSet rs = stm.executeQuery("SELECT alias_usuario FROM Usuario where alias_usuario='" + nick + "' and contrasena_usuario='" + pass + "'");
             rs.next();
             estado = rs.getString(1);
             rs.close();
@@ -54,12 +53,6 @@ public class ControlUsuario {
 
             return estado;
         }
-
-
-
-
-
-    }
 /*
     public static int loginUsuario(String nick, String pass) {
         int estado = -1;
@@ -87,4 +80,5 @@ return estado;
 
 
  */
+    }
 }

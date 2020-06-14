@@ -21,6 +21,10 @@ public class Usuario {
         this.comuna = comuna;
     }
 
+    public Usuario() {
+
+    }
+
     public int getIdUsuario() {
         return idUsuario;
     }
