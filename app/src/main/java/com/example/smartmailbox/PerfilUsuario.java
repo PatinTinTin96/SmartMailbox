@@ -4,12 +4,23 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
 
+import com.example.smartmailbox.Modelo.Comuna;
+import com.example.smartmailbox.Modelo.DbConnection;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PerfilUsuario extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     BottomNavigationView bottomNavigationView;
@@ -27,12 +38,8 @@ public class PerfilUsuario extends AppCompatActivity implements BottomNavigation
         edtNick=findViewById(R.id.edtNick);
         edtPass=findViewById(R.id.edtPass);
         btnActualizar=findViewById(R.id.btnActualizar);
+        cargarpreferencias();
 
-        Bundle extra = getIntent().getExtras();
-        if(extra!=null){
-            String us = extra.getString("Usuario");
-            edtNick.getEditText().setText(us);
-        }
 
 
     }
@@ -58,4 +65,21 @@ public class PerfilUsuario extends AppCompatActivity implements BottomNavigation
         }
         return false;
     }
+    public void cargarpreferencias(){
+        SharedPreferences preferences = getSharedPreferences("credenciales", MODE_PRIVATE);
+        String nick = preferences.getString("nick","No data");
+        String pass = preferences.getString("pass","No data");
+        String name = preferences.getString("name","No data");
+        edtNick.getEditText().setText(nick);
+        edtPass.getEditText().setText(pass);
+        edtnombre.getEditText().setText(name);
+
+
+
+
+
+
+    }
+
+
 }

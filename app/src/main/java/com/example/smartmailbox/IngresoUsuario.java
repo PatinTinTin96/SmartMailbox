@@ -3,6 +3,7 @@ package com.example.smartmailbox;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.Image;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -23,6 +24,9 @@ import org.w3c.dom.Text;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class IngresoUsuario extends AppCompatActivity {
 TextView txtCrearCuenta;
@@ -49,6 +53,7 @@ ImageView ImagenLogo;
             @Override
             public void onClick(View v) {
                 logear();
+                guardarcredenciales();
             }
         });
 
@@ -62,11 +67,11 @@ ImageView ImagenLogo;
         String nick = edtUsuario.getEditText().getText().toString();
         String pass = edtContraseña.getEditText().getText().toString();
         if(ControlUsuario.loginUsuario(nick,pass)!=null){
-            //Bundle us = new Bundle();
-            //us.putString("Usuario", nick);
+            Bundle us = new Bundle();
+            us.putString("usuario", nick);
             Toast.makeText(getApplicationContext(), "Exito", Toast.LENGTH_LONG).show();
             Intent l = new Intent(IngresoUsuario.this,Principal.class);
-            l.putExtra("Usuario",nick);
+            l.putExtras(us);
             startActivity(l);
         }else {
             Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
@@ -78,6 +83,41 @@ ImageView ImagenLogo;
     private void registrar() {
         Intent r = new Intent(IngresoUsuario.this,RegistroUsuario.class);
         startActivity(r);
+    }
+    public void guardarcredenciales(){
+        SharedPreferences preferences = getSharedPreferences("credenciales", MODE_PRIVATE);
+        String nick = edtUsuario.getEditText().getText().toString();
+        String pass = edtContraseña.getEditText().getText().toString();
+      String nombre=null;
+        DbConnection conn = new DbConnection();
+        try {
+            Statement stm = conn.conexion().createStatement();
+            ResultSet rs = stm.executeQuery("SELECT nombre_usuario FROM Usuario where alias_usuario='" + nick + "' and contrasena_usuario='" + pass + "'");
+            rs.next();
+            String result = rs.getString("NOMBRE_USUARIO");
+            if (result != null){
+                nombre=result;
+                rs.close();
+                stm.close();
+            }else{
+                nombre="falló la conexión";
+            }
+
+
+            rs.close();
+            stm.close();
+
+
+        } catch (SQLException e) {
+
+        }
+
+
+        SharedPreferences.Editor editor=preferences.edit();
+        editor.putString("nick",nick);
+        editor.putString("pass",pass);
+        editor.putString("name",nombre);
+        editor.commit();
     }
 
 

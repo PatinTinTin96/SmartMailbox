@@ -77,14 +77,19 @@
             android:id="@+id/edtPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Contraseña">
+            android:hint="Contraseña"
+
+
+         >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_account_box"
                 android:drawablePadding="10dp"
-                android:inputType="textPassword">
+                android:inputType="textPassword"
+
+                >
 
             </com.google.android.material.textfield.TextInputEditText>
 

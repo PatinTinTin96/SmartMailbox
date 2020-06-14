@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +25,8 @@ public class Principal extends AppCompatActivity implements BottomNavigationView
     }
 
 
+
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
@@ -39,9 +42,11 @@ public class Principal extends AppCompatActivity implements BottomNavigationView
                 Intent p = new Intent(Principal.this,PerfilUsuario.class);
                 startActivity(p);
                 overridePendingTransition(0,0);
+
                 return (true);
 
         }
         return false;
     }
+
 }
