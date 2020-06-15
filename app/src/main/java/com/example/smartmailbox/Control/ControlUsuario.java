@@ -1,5 +1,8 @@
 package com.example.smartmailbox.Control;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,6 +11,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.smartmailbox.IngresoUsuario;
 import com.example.smartmailbox.Modelo.Comuna;
 import com.example.smartmailbox.Modelo.DbConnection;
 import com.example.smartmailbox.Modelo.Usuario;
@@ -41,18 +45,23 @@ public class ControlUsuario {
 
     public static String loginUsuario(String nick, String pass) {
         String estado = null;
+
         try {
             Statement stm = conn.conexion().createStatement();
             ResultSet rs = stm.executeQuery("SELECT alias_usuario FROM Usuario where alias_usuario='" + nick + "' and contrasena_usuario='" + pass + "'");
             rs.next();
             estado = rs.getString(1);
+
             rs.close();
             return estado;
+
 
         } catch (SQLException e) {
 
             return estado;
         }
+
+
 /*
     public static int loginUsuario(String nick, String pass) {
         int estado = -1;
@@ -81,4 +90,44 @@ return estado;
 
  */
     }
+ /*
+    public void guardarcredenciales(String nick){
+
+        SharedPreferences preferences =  getSharedPreferences("credenciales", MODE_PRIVATE);
+
+        String contraseña = null;
+        String nombrecompleto=null;
+        DbConnection conn = new DbConnection();
+        try {
+            Statement stm = conn.conexion().createStatement();
+            ResultSet rs = stm.executeQuery("select NOMBRE_USUARIO,CONTRASENA_USUARIO from usuario where ALIAS_USUARIO='"+nick+"'");
+            rs.next();
+            if(rs != null){
+                String c = rs.getString("CONTRASENA_USUARIO");
+                String nc = rs.getString("NOMBRE_USUARIO");
+                contraseña=c;
+                nombrecompleto=nc;
+            }else{
+                rs.close();
+                stm.close();
+            }
+
+            rs.close();
+            stm.close();
+
+
+
+
+        } catch (SQLException e) {
+
+        }
+
+
+        SharedPreferences.Editor editor=preferences.edit();
+        editor.putString("nick",nick);
+        editor.putString("pass",contraseña);
+        editor.putString("name",nombrecompleto);
+        editor.commit();
+    }
+     */
 }

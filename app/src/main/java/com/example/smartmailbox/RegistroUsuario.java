@@ -83,7 +83,7 @@ static int mailbox = 1;
                 String pass = edtContraseña.getEditText().getText().toString();
 
                 if (ControlUsuario.agregarUsuario(nombre, nick, email, tel, dir, pass, comuna, mailbox)) {
-                    Toast.makeText(getApplicationContext(), "Exito", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Registrado Correctamente", Toast.LENGTH_LONG).show();
                 } else {
 
                     Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();

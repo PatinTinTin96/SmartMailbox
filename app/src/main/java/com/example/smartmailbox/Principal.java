@@ -10,7 +10,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.smartmailbox.Control.ControlUsuario;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.ResourceBundle;
 
 public class Principal extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 

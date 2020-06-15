@@ -53,7 +53,8 @@ ImageView ImagenLogo;
             @Override
             public void onClick(View v) {
                 logear();
-                guardarcredenciales();
+
+
             }
         });
 
@@ -66,15 +67,17 @@ ImageView ImagenLogo;
     private void logear() {
         String nick = edtUsuario.getEditText().getText().toString();
         String pass = edtContraseña.getEditText().getText().toString();
+
         if(ControlUsuario.loginUsuario(nick,pass)!=null){
-            Bundle us = new Bundle();
-            us.putString("usuario", nick);
-            Toast.makeText(getApplicationContext(), "Exito", Toast.LENGTH_LONG).show();
+
+            guardarcredenciales();
+
+            Toast.makeText(getApplicationContext(), "Bienvenido", Toast.LENGTH_LONG).show();
             Intent l = new Intent(IngresoUsuario.this,Principal.class);
-            l.putExtras(us);
+
             startActivity(l);
         }else {
-            Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Usuario o Contraseña Incorrectos", Toast.LENGTH_LONG).show();
         }
 
 
@@ -84,7 +87,9 @@ ImageView ImagenLogo;
         Intent r = new Intent(IngresoUsuario.this,RegistroUsuario.class);
         startActivity(r);
     }
+
     public void guardarcredenciales(){
+
         SharedPreferences preferences = getSharedPreferences("credenciales", MODE_PRIVATE);
         String nick = edtUsuario.getEditText().getText().toString();
         String pass = edtContraseña.getEditText().getText().toString();
@@ -119,6 +124,8 @@ ImageView ImagenLogo;
         editor.putString("name",nombre);
         editor.commit();
     }
+
+
 
 
 }
