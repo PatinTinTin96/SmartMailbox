@@ -31,7 +31,7 @@ public class Principal extends AppCompatActivity implements BottomNavigationView
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.Buzon:
-                Intent b = new Intent(Principal.this,Buzon.class);
+                Intent b = new Intent(Principal.this,VincularDispositivo.class);
                 startActivity(b);
                 overridePendingTransition(0,0);
                 return (true);
