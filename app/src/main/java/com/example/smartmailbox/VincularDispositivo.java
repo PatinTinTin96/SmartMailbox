@@ -54,13 +54,13 @@ public class VincularDispositivo extends AppCompatActivity {
         if (pairedDevices.size() > 0 ) {
 
             for (BluetoothDevice device : pairedDevices) {
-                if (device.getName().equals("HC-06")) {
+
                     mPairedDevicesArrayAdapter.add(device.getName() + "\n" + device.getAddress());
-                }else {
-                    Toast.makeText(getApplicationContext(),"Vincule su Dispositivo",Toast.LENGTH_SHORT).show();
-                }
+
             }
         }
+
+
         if (pairedDevices.size()<=0){
             Toast.makeText(getApplicationContext(),"No Tiene Ningun Dispositivo Vinculado ",Toast.LENGTH_SHORT).show();
         }
