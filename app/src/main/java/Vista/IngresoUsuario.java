@@ -1,29 +1,22 @@
-package com.example.smartmailbox;
+package Vista;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.Image;
 import android.os.Bundle;
-import android.os.StrictMode;
-import android.se.omapi.Session;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.smartmailbox.Control.ControlUsuario;
-import com.example.smartmailbox.Modelo.DbConnection;
+import com.example.smartmailbox.Control.DbConnection;
+import com.example.smartmailbox.R;
 import com.google.android.material.textfield.TextInputLayout;
 
-import org.w3c.dom.Text;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -65,26 +58,26 @@ ImageView ImagenLogo;
 
 
     private void logear() {
+
         String nick = edtUsuario.getEditText().getText().toString();
         String pass = edtContraseña.getEditText().getText().toString();
 
         if(ControlUsuario.loginUsuario(nick,pass)!=null){
 
-            guardarcredenciales();
+           guardarcredenciales();
 
             Toast.makeText(getApplicationContext(), "Bienvenido", Toast.LENGTH_LONG).show();
-            Intent l = new Intent(IngresoUsuario.this,Principal.class);
-
+            Intent l = new Intent(IngresoUsuario.this, Principal.class);
             startActivity(l);
         }else {
-            Toast.makeText(getApplicationContext(), "Usuario o Contraseña Incorrectos", Toast.LENGTH_LONG).show();
+           Toast.makeText(getApplicationContext(), "Usuario o Contraseña Incorrectos", Toast.LENGTH_LONG).show();
         }
 
 
     }
 
     private void registrar() {
-        Intent r = new Intent(IngresoUsuario.this,RegistroUsuario.class);
+        Intent r = new Intent(IngresoUsuario.this, RegistroUsuario.class);
         startActivity(r);
     }
 

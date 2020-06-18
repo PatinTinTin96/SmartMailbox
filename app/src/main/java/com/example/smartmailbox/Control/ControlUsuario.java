@@ -1,25 +1,25 @@
 package com.example.smartmailbox.Control;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-
-import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-
-import com.example.smartmailbox.IngresoUsuario;
-import com.example.smartmailbox.Modelo.Comuna;
-import com.example.smartmailbox.Modelo.DbConnection;
-import com.example.smartmailbox.Modelo.Usuario;
 
 public class ControlUsuario {
     public static DbConnection conn = new DbConnection();
 
-
+    /**
+     *
+     * @param nombreUsuario
+     * @param nickUsuario
+     * @param emailUsuario
+     * @param telefonoUsuario
+     * @param direccionUsuario
+     * @param contraseñaUsuario
+     * @param comuna
+     * @param mailbox
+     * @return
+     */
     public static boolean agregarUsuario(String nombreUsuario, String nickUsuario, String emailUsuario, String telefonoUsuario, String direccionUsuario, String contraseñaUsuario, int comuna, int mailbox){
 
         try {
@@ -43,6 +43,13 @@ public class ControlUsuario {
 
     }
 
+    /**
+     * Para el metodo de login de tomaran de entrada el nick y la contraseña del usuario
+     * los cuales seran comparados dentro de la base de datos en la cual retornara el nick en caso
+     * @param nick
+     * @param pass
+     * @return
+     */
     public static String loginUsuario(String nick, String pass) {
         String estado = null;
 
@@ -61,34 +68,6 @@ public class ControlUsuario {
             return estado;
         }
 
-
-/*
-    public static int loginUsuario(String nick, String pass) {
-        int estado = -1;
-        try {
-
-            CallableStatement call = conn.conexion().prepareCall("(call dbo.USUARIO(?,?,?,?,?,?,?,?,?)");
-            call.setString(2,nick);
-            call.setString(3,pass);
-            ResultSet rs = call.executeQuery();
-            rs.next();
-            estado = rs.getInt(1);
-            rs.close();
-            call.close();
-            return estado;
-
-        } catch (SQLException e) {
-return estado;
-        }
-
-
-
-
-
-    }
-
-
- */
     }
  /*
     public void guardarcredenciales(String nick){

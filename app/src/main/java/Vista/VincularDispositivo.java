@@ -1,4 +1,4 @@
-package com.example.smartmailbox;
+package Vista;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +13,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.smartmailbox.R;
 
 import java.util.Set;
 

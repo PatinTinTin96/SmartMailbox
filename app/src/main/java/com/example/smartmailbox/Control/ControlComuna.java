@@ -1,21 +1,12 @@
 package com.example.smartmailbox.Control;
 
-import android.util.Log;
-import android.widget.ArrayAdapter;
+import com.example.smartmailbox.Modelo.Comuna;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.example.smartmailbox.Modelo.Comuna;
-import com.example.smartmailbox.Modelo.DbConnection;
-
-import androidx.lifecycle.ViewModelStoreOwner;
-
-import static com.example.smartmailbox.Control.ControlUsuario.conn;
 
 public class ControlComuna {
     public static DbConnection conn = new DbConnection();

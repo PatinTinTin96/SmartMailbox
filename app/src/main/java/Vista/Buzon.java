@@ -1,4 +1,4 @@
-package com.example.smartmailbox;
+package Vista;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,22 +9,18 @@ import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.smartmailbox.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.Set;
 import java.util.UUID;
 
 public class Buzon extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -222,12 +218,12 @@ public class Buzon extends AppCompatActivity implements BottomNavigationView.OnN
             case R.id.Buzon:
                 return (true);
             case R.id.Home:
-                Intent i = new Intent(Buzon.this,Principal.class);
+                Intent i = new Intent(Buzon.this, Principal.class);
                 startActivity(i);
                 overridePendingTransition(0,0);
                 return (true);
             case R.id.PerfilUsuario:
-                Intent p = new Intent(Buzon.this,PerfilUsuario.class);
+                Intent p = new Intent(Buzon.this, PerfilUsuario.class);
                 startActivity(p);
                 overridePendingTransition(0,0);
                 return (true);

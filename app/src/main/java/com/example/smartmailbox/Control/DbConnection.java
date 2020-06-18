@@ -1,4 +1,4 @@
-package com.example.smartmailbox.Modelo;
+package com.example.smartmailbox.Control;
 
 import android.os.StrictMode;
 
@@ -13,7 +13,7 @@ public class DbConnection {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
             Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance();
-            conn = DriverManager.getConnection("jdbc:jtds:sqlserver://192.168.1.102;databaseName=SmartMailbox;user=sa;password=90637551lol;");
+            conn = DriverManager.getConnection("jdbc:jtds:sqlserver://192.168.0.14;databaseName=SmartMailbox;user=sa;password=marlyn96;");
         }catch (Exception e ){
 
         }

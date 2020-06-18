@@ -9,20 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".VincularDispositivo"></activity>
-        <activity android:name=".prueba" />
-        <activity android:name=".Buzon" />
-        <activity android:name=".PerfilUsuario" />
-        <activity android:name=".RegistroUsuario" />
-        <activity android:name=".IngresoUsuario" />
-        <activity android:name=".SplashScreen">
+        <activity android:name="Vista.VincularDispositivo"></activity>
+        <activity android:name="Vista.prueba" />
+        <activity android:name="Vista.Buzon" />
+        <activity android:name="Vista.PerfilUsuario" />
+        <activity android:name="Vista.RegistroUsuario" />
+        <activity android:name="Vista.IngresoUsuario" />
+        <activity android:name="Vista.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Principal" />
+        <activity android:name="Vista.Principal" />
 
         <meta-data
             android:name="preloaded_fonts"

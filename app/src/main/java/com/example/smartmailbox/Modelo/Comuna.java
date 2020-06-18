@@ -1,5 +1,7 @@
 package com.example.smartmailbox.Modelo;
 
+import com.example.smartmailbox.Modelo.Provincia;
+
 public class Comuna {
     private int idcomuna;
     private String nombreComuna;

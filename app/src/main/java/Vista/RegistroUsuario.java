@@ -1,32 +1,21 @@
-package com.example.smartmailbox;
+package Vista;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.StrictMode;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.smartmailbox.Control.ControlComuna;
 import com.example.smartmailbox.Control.ControlUsuario;
-import com.example.smartmailbox.Modelo.Comuna;
-import com.example.smartmailbox.Modelo.DbConnection;
-import com.google.android.material.textfield.TextInputEditText;
+import com.example.smartmailbox.R;
 import com.google.android.material.textfield.TextInputLayout;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 public class RegistroUsuario extends AppCompatActivity {
 
@@ -84,6 +73,8 @@ static int mailbox = 1;
 
                 if (ControlUsuario.agregarUsuario(nombre, nick, email, tel, dir, pass, comuna, mailbox)) {
                     Toast.makeText(getApplicationContext(), "Registrado Correctamente", Toast.LENGTH_LONG).show();
+                    Intent r = new Intent(RegistroUsuario.this, IngresoUsuario.class);
+                    startActivity(r);
                 } else {
 
                     Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
@@ -99,10 +90,7 @@ static int mailbox = 1;
     }
 
 
-    private void registrar() {
-        Intent r = new Intent(RegistroUsuario.this,IngresoUsuario.class);
-        startActivity(r);
-    }
+
 
 
 }
