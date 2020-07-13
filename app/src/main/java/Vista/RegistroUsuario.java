@@ -58,7 +58,7 @@ static int mailbox = 1;
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
+                Toast.makeText(getApplicationContext(), "Seleccione una comuna", Toast.LENGTH_LONG).show();
             }
         });
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
@@ -70,15 +70,25 @@ static int mailbox = 1;
                 String tel = edtTelefonoUsuario.getEditText().getText().toString();
                 String dir = edtDireccionUsuario.getEditText().getText().toString();
                 String pass = edtContraseña.getEditText().getText().toString();
+                String chpass = edtConfirmarContraseña.getEditText().getText().toString();
 
-                if (ControlUsuario.agregarUsuario(nombre, nick, email, tel, dir, pass, comuna, mailbox)) {
-                    Toast.makeText(getApplicationContext(), "Registrado Correctamente", Toast.LENGTH_LONG).show();
-                    Intent r = new Intent(RegistroUsuario.this, IngresoUsuario.class);
-                    startActivity(r);
-                } else {
+                if (nombre.equals("") || nick.equals("") || email.equals("") || tel.equals("") || dir.equals("") || comuna==0 || pass.equals("") || chpass.equals("")){
+                    Toast.makeText(getApplicationContext(), "Rellene todos los campos", Toast.LENGTH_LONG).show();
+                }else{
+                    if (pass.equals(chpass)){
+                        if (ControlUsuario.agregarUsuario(nombre, nick, email, tel, dir, pass, comuna, mailbox)) {
+                            Toast.makeText(getApplicationContext(), "Registrado Correctamente", Toast.LENGTH_LONG).show();
+                            Intent r = new Intent(RegistroUsuario.this, IngresoUsuario.class);
+                            startActivity(r);
+                        } else {
 
-                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Error al ingresar", Toast.LENGTH_LONG).show();
+                        }
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Las contraseñas no coinciden", Toast.LENGTH_LONG).show();
+                    }
                 }
+
 
 
 
