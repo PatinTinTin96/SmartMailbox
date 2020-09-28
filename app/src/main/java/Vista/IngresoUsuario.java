@@ -58,7 +58,7 @@ ImageView ImagenLogo;
 
 
     private void logear() {
-
+/*
         String nick = edtUsuario.getEditText().getText().toString();
         String pass = edtContraseña.getEditText().getText().toString();
 
@@ -73,7 +73,10 @@ ImageView ImagenLogo;
            Toast.makeText(getApplicationContext(), "Usuario o Contraseña Incorrectos", Toast.LENGTH_LONG).show();
         }
 
-
+*/
+        Toast.makeText(getApplicationContext(), "Bienvenido", Toast.LENGTH_LONG).show();
+        Intent l = new Intent(IngresoUsuario.this, Principal.class);
+        startActivity(l);
     }
 
     private void registrar() {

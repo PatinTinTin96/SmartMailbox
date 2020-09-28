@@ -32,6 +32,7 @@ static int mailbox = 1;
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_registro_usuario);
 
+
         edtNombreUsuario = findViewById(R.id.nombreUsuario);
         edtNickUsuario = findViewById(R.id.nickUsuario);
         edtEmailUsuario = findViewById(R.id.correoUsuario);
