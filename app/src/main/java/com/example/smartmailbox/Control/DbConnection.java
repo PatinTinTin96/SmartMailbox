@@ -13,7 +13,7 @@ public class DbConnection {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
             Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance();
-            conn = DriverManager.getConnection("jdbc:jtds:sqlserver://192.168.0.16;databaseName=SmartMailbox;user=sa;password=marlyn96;");
+            conn = DriverManager.getConnection("jdbc:jtds:sqlserver://192.168.0.3;databaseName=SmartMailbox;user=sa;password=90687551lol;");
         }catch (Exception e ){
 
         }
