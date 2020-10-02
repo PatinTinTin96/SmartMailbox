@@ -43,7 +43,7 @@ Button btnOn,btnOff;
             @Override
             public void onClick(View v) {
                 String on = "/led1on";
-                MyClientTask myClientTask = new MyClientTask(on.toString());
+                MyClientTask myClientTask = new MyClientTask();
                 myClientTask.execute();
             }
         });
@@ -53,14 +53,14 @@ Button btnOn,btnOff;
             @Override
             public void onClick(View v) {
                 String off = "off";
-                MyClientTask myClientTask = new MyClientTask(off.toString());
+                MyClientTask myClientTask = new MyClientTask();
                 myClientTask.execute();
             }
         });
     }
 
 
-
+/*
     @SuppressLint("StaticFieldLeak")
     public class MyClientTask extends AsyncTask<Void, Void, Void> {
         String response = "";
@@ -113,6 +113,40 @@ Button btnOn,btnOff;
         protected void onPostExecute(Void result) {
             //textResponse.setText(response);
             super.onPostExecute(result);
+        }
+    }
+
+ */
+
+    @SuppressLint("StaticFieldLeak")
+    public class MyClientTask extends AsyncTask<Void, Void, String> {
+        @Override
+        protected String doInBackground(Void... voids) {
+
+            try {
+
+                URL url = new URL("http://192.168.0.12/led1on");
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                bufferedReader.readLine();
+
+
+            }
+            catch (MalformedURLException e)
+            {
+
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+            return null;
+        }
+        @Override
+        protected void onPostExecute(String aVoid) {
+            super.onPostExecute(aVoid);
+
         }
     }
 }
