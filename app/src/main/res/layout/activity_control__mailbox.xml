@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="Vista.Control_Mailbox">
+    tools:context=".Vista.Control_Mailbox">
 
     <Button
         android:id="@+id/btnOn"

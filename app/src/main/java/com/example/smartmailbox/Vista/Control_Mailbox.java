@@ -1,4 +1,4 @@
-package Vista;
+package com.example.smartmailbox.Vista;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,29 +8,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.smartmailbox.Control.InteractionOn;
-import com.example.smartmailbox.Control.InteractionOff;
 import com.example.smartmailbox.R;
 
-import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.Socket;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.HashMap;
 
 public class Control_Mailbox extends AppCompatActivity {
 Button btnOn,btnOff;
-    String IpAddress = "192.168.0.5";
+    String IpAddress = "192.168.1.96";
     int Port = 80;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +50,7 @@ Button btnOn,btnOff;
 
 
 
-    @SuppressLint("StaticFieldLeak")
+    @SuppressLint("StaticFieldq Leak")
     public class MyClientTask extends AsyncTask<Void, Void, Void> {
         String response = "";
         String msgToServer;

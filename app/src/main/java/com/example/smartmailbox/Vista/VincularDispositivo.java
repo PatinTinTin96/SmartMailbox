@@ -1,4 +1,4 @@
-package Vista;
+package com.example.smartmailbox.Vista;
 
 import androidx.appcompat.app.AppCompatActivity;
 

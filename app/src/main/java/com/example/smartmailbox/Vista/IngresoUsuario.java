@@ -1,4 +1,4 @@
-package Vista;
+package com.example.smartmailbox.Vista;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -58,7 +58,7 @@ ImageView ImagenLogo;
 
 
     private void logear() {
-
+/*
         String nick = edtUsuario.getEditText().getText().toString();
         String pass = edtContraseña.getEditText().getText().toString();
 
@@ -74,10 +74,14 @@ ImageView ImagenLogo;
         }
 
 
+
+ */
         Toast.makeText(getApplicationContext(), "Bienvenido", Toast.LENGTH_LONG).show();
         Intent l = new Intent(IngresoUsuario.this, Principal.class);
         startActivity(l);
     }
+
+
 
     private void registrar() {
         Intent r = new Intent(IngresoUsuario.this, RegistroUsuario.class);

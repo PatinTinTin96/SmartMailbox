@@ -1,4 +1,4 @@
-package Vista;
+package com.example.smartmailbox.Vista;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,7 +29,7 @@ Button btnConectar;
     }
 
     private void connect() {
-        Intent led = new Intent(this,Control_Mailbox.class);
+        Intent led = new Intent(this, Control_Mailbox.class);
         startActivity(led);
     }
 
