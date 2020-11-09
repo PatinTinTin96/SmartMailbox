@@ -10,7 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class InteractionOn extends AsyncTask<Void,Void,String>  {
+public class InteractionOn extends AsyncTask<Void,Void,String> {
     public static String texr ="192.168.0.12";
     @Override
     protected String doInBackground(Void... voids) {

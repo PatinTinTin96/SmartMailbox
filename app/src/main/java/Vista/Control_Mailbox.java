@@ -30,7 +30,7 @@ import java.util.HashMap;
 
 public class Control_Mailbox extends AppCompatActivity {
 Button btnOn,btnOff;
-    String IpAddress = "192.168.0.4";
+    String IpAddress = "192.168.0.5";
     int Port = 80;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +42,10 @@ Button btnOn,btnOff;
         btnOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String on = "/led1on";
-                MyClientTask myClientTask = new MyClientTask(on.toString());
-                myClientTask.execute();
+
+                String on = "on";
+                MyClientTask myClientTask = new MyClientTask(on);
+               myClientTask.execute();
             }
         });
 
@@ -52,9 +53,10 @@ Button btnOn,btnOff;
         btnOff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String off = "off";
-                MyClientTask myClientTask = new MyClientTask(off.toString());
-                myClientTask.execute();
+                MyClientTask myClientTask = new MyClientTask(off);
+               myClientTask.execute();
             }
         });
     }
@@ -115,5 +117,46 @@ Button btnOn,btnOff;
             super.onPostExecute(result);
         }
     }
+
+
+/*
+    public class MyClientTask extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected String doInBackground(String... urls) {
+
+            String result = "";
+            URL url;
+            HttpURLConnection urlConnection=null;
+
+
+            try {
+                url = new URL("http://192.168.0.12/led1on");
+
+                urlConnection=(HttpURLConnection)url.openConnection();
+                InputStream in = urlConnection.getInputStream();
+
+                InputStreamReader reader = new InputStreamReader(in);
+                reader.ready();
+
+                return null;
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+        @Override
+        protected void onPostExecute(String aVoid) {
+            super.onPostExecute(aVoid);
+        }
+    }
+*/
+
+
+
 }
 
