@@ -24,7 +24,7 @@ import java.sql.Statement;
 public class IngresoUsuario extends AppCompatActivity {
 TextView txtCrearCuenta;
 TextInputLayout edtUsuario,edtContraseña;
-Button btnLogin,btnCrearUsuario;
+Button btnLogin,btnCrearUsuario,btnQr;
 ImageView ImagenLogo;
 
     @Override
@@ -36,6 +36,7 @@ ImageView ImagenLogo;
         edtContraseña=findViewById(R.id.IngreseContraseña);
         btnCrearUsuario=findViewById(R.id.btnCrearUsuario);
         btnLogin=findViewById(R.id.btnLogin);
+        btnQr=findViewById(R.id.btnQR);
         btnCrearUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +52,13 @@ ImageView ImagenLogo;
             }
         });
 
-
+         btnQr.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent qr = new Intent(IngresoUsuario.this, LectorQr.class);
+                 startActivity(qr);
+             }
+         });
 
     }
 
