@@ -12,17 +12,17 @@
     <ImageView
         android:id="@+id/ImagenLogo"
         android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_height="100dp"
         android:background="@drawable/logo3"
         />
     <TextView
-        android:id="@+id/TextoLogo"
-        android:textSize="40dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-       android:text="Login"
-        android:fontFamily="@font/bangers"
-        />
+    android:id="@+id/TextoLogo"
+    android:textSize="40dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Login"
+    android:fontFamily="@font/bangers"
+    />
 
 
 
@@ -91,6 +91,18 @@
         android:text="Registrar"
         android:textColor="@color/cardview_light_background"
         android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_gravity="right"
+        />
+
+    <Button
+        android:id="@+id/btnIngresoRepartidor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_border"
+        android:text="¿Eres repartidor?"
+        android:textColor="@color/cardview_light_background"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="5dp"
         android:layout_gravity="right"
         />

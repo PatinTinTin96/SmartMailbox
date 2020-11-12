@@ -24,7 +24,7 @@ import java.sql.Statement;
 public class IngresoUsuario extends AppCompatActivity {
 TextView txtCrearCuenta;
 TextInputLayout edtUsuario,edtContraseña;
-Button btnLogin,btnCrearUsuario;
+Button btnLogin,btnCrearUsuario,btnIngresoRepartidor;
 ImageView ImagenLogo;
 
     @Override
@@ -36,12 +36,16 @@ ImageView ImagenLogo;
         edtContraseña=findViewById(R.id.IngreseContraseña);
         btnCrearUsuario=findViewById(R.id.btnCrearUsuario);
         btnLogin=findViewById(R.id.btnLogin);
+        btnIngresoRepartidor=findViewById(R.id.btnIngresoRepartidor);
         btnCrearUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 registrar();
             }
         });
+
+
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,11 +54,21 @@ ImageView ImagenLogo;
 
             }
         });
+        btnIngresoRepartidor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ingresoRepartidor();
+            }
+        });
 
 
 
     }
 
+    private void ingresoRepartidor() {
+        Intent r = new Intent(IngresoUsuario.this, IngresoRepartidor.class);
+        startActivity(r);
+    }
 
 
     private void logear() {
@@ -63,8 +77,8 @@ ImageView ImagenLogo;
         String pass = edtContraseña.getEditText().getText().toString();
 
         if(ControlUsuario.loginUsuario(nick,pass)!=null){
+            guardarcredenciales();
 
-           guardarcredenciales();
 
             Toast.makeText(getApplicationContext(), "Bienvenido", Toast.LENGTH_LONG).show();
             Intent l = new Intent(IngresoUsuario.this, Principal.class);
@@ -73,12 +87,6 @@ ImageView ImagenLogo;
            Toast.makeText(getApplicationContext(), "Usuario o Contraseña Incorrectos", Toast.LENGTH_LONG).show();
         }
 
-
-
-
-        Toast.makeText(getApplicationContext(), "Bienvenido", Toast.LENGTH_LONG).show();
-        Intent l = new Intent(IngresoUsuario.this, Principal.class);
-        startActivity(l);
     }
 
 
