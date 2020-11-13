@@ -17,21 +17,19 @@ public class ControlUsuario {
      * @param direccionUsuario
      * @param contraseñaUsuario
      * @param comuna
-     * @param mailbox
      * @return
      */
-    public static boolean agregarUsuario(String nombreUsuario, String nickUsuario, String emailUsuario, String telefonoUsuario, String direccionUsuario, String contraseñaUsuario, int comuna, int mailbox){
+    public static boolean agregarUsuario(String nombreUsuario, String nickUsuario, String emailUsuario, String telefonoUsuario, String direccionUsuario, String contraseñaUsuario, int comuna){
 
         try {
-            PreparedStatement stm = conn.conexion().prepareStatement("insert into Usuario values (?,?,?,?,?,?,?,?)");
+            PreparedStatement stm = conn.conexion().prepareStatement("insert into Usuario values (?,?,?,?,?,?,?)");
             stm.setInt(1,comuna);
-            stm.setInt(2,mailbox);
-            stm.setString(3,nombreUsuario);
-            stm.setString(4,nickUsuario);
-            stm.setString(5,emailUsuario);
-            stm.setString(6,telefonoUsuario);
-            stm.setString(7,direccionUsuario);
-            stm.setString(8,contraseñaUsuario);
+            stm.setString(2,nombreUsuario);
+            stm.setString(3,nickUsuario);
+            stm.setString(4,emailUsuario);
+            stm.setString(5,telefonoUsuario);
+            stm.setString(6,direccionUsuario);
+            stm.setString(7,contraseñaUsuario);
 
             stm.executeUpdate();
             stm.close();
@@ -55,7 +53,7 @@ public class ControlUsuario {
 
         try {
             Statement stm = conn.conexion().createStatement();
-            ResultSet rs = stm.executeQuery("SELECT alias_usuario FROM Usuario where alias_usuario='" + nick + "' and contrasena_usuario='" + pass + "'");
+            ResultSet rs = stm.executeQuery("SELECT alias_usuario FROM Usuario where alias_usuario='" + nick + "' and pass_usuario='" + pass + "'");
             rs.next();
             estado = rs.getString(1);
 

@@ -20,7 +20,7 @@
         android:textSize="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="Login Repartidor"
         android:fontFamily="@font/bangers"
         />
 

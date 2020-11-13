@@ -41,6 +41,7 @@ public class LectorQr extends AppCompatActivity {
                     @Override
                     public void run() {
                         Toast.makeText(LectorQr.this, result.getText(), Toast.LENGTH_SHORT).show();
+
                     }
                 });
             }

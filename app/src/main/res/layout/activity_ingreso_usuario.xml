@@ -95,18 +95,7 @@
         android:layout_gravity="right"
         />
 
-    <Button
 
-        android:id="@+id/btnQR"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_border"
-        android:text="QR"
-        android:layout_marginTop="5dp"
-        android:textColor="@color/cardview_light_background"
-        android:layout_marginBottom="5dp"
-        android:layout_gravity="right"
-        />
     <Button
 
         android:id="@+id/btnIngresoRepartidor"
