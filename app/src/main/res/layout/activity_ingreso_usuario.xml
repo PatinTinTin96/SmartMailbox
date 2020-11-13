@@ -95,7 +95,7 @@
         android:layout_gravity="right"
         />
 
-    <Button
+
 
         android:id="@+id/btnQR"
         android:layout_width="match_parent"
@@ -114,6 +114,8 @@
 
     </TextView>
 
+=======
+>>>>>>> 439f47295e9d2cc8db41b4cc67b53672460e2768
     <Button
 
         android:id="@+id/btnIngresoRepartidor"

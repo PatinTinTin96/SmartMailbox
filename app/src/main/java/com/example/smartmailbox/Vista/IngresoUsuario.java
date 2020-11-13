@@ -34,7 +34,7 @@ public class IngresoUsuario extends AppCompatActivity {
 TextView txtCrearCuenta;
 TextInputLayout edtUsuario,edtContraseña;
 
-Button btnLogin,btnCrearUsuario,btnQr,btnIngresoRepartidor;
+Button btnLogin,btnCrearUsuario,btnIngresoRepartidor;
 
 
 ImageView ImagenLogo;
@@ -52,7 +52,7 @@ ImageView ImagenLogo;
         btnCrearUsuario=findViewById(R.id.btnCrearUsuario);
         btnLogin=findViewById(R.id.btnLogin);
 
-        btnQr=findViewById(R.id.btnQR);
+
 
         btnIngresoRepartidor=findViewById(R.id.btnIngresoRepartidor);
 
@@ -80,13 +80,6 @@ ImageView ImagenLogo;
             }
         });
 
-         btnQr.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 Intent qr = new Intent(IngresoUsuario.this, LectorQr.class);
-                 startActivity(qr);
-             }
-         });
 
     }
     /**

@@ -23,7 +23,7 @@ public class RegistroUsuario extends AppCompatActivity {
  TextInputLayout edtNombreUsuario,edtNickUsuario,edtEmailUsuario,edtTelefonoUsuario,edtDireccionUsuario,edtContraseña,edtConfirmarContraseña;
 Button btnRegistrar;
 int comuna;
-static int mailbox = 1;
+
 
 
     @Override
@@ -77,7 +77,7 @@ static int mailbox = 1;
                     Toast.makeText(getApplicationContext(), "Rellene todos los campos", Toast.LENGTH_LONG).show();
                 }else{
                     if (pass.equals(chpass)){
-                        if (ControlUsuario.agregarUsuario(nombre, nick, email, tel, dir, pass, comuna, mailbox)) {
+                        if (ControlUsuario.agregarUsuario(nombre, nick, email, tel, dir, pass, comuna)) {
                             Toast.makeText(getApplicationContext(), "Registrado Correctamente", Toast.LENGTH_LONG).show();
                             Intent r = new Intent(RegistroUsuario.this, IngresoUsuario.class);
                             startActivity(r);
