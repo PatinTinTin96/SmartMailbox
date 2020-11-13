@@ -2,6 +2,10 @@ package com.example.smartmailbox.Vista;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.smartmailbox.Control.FirebaseService;
+import com.example.smartmailbox.Control.RegistrationIntentService;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.util.Log;
 
 import com.example.smartmailbox.Control.ControlUsuario;
 import com.example.smartmailbox.Control.DbConnection;
@@ -22,6 +27,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class IngresoUsuario extends AppCompatActivity {
+    public static IngresoUsuario mainActivity;
+    public static Boolean isVisible = false;
+    private static final String TAG = "MainActivity";
+    private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 TextView txtCrearCuenta;
 TextInputLayout edtUsuario,edtContraseña;
 
@@ -35,6 +44,9 @@ ImageView ImagenLogo;
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_ingreso_usuario);
+        mainActivity = this;
+        registerWithNotificationHubs();
+        FirebaseService.createChannelAndHandleNotifications(getApplicationContext());
         edtUsuario= findViewById(R.id.IngreseNombre);
         edtContraseña=findViewById(R.id.IngreseContraseña);
         btnCrearUsuario=findViewById(R.id.btnCrearUsuario);
@@ -76,6 +88,36 @@ ImageView ImagenLogo;
              }
          });
 
+    }
+    /**
+     * Check the device to make sure it has the Google Play Services APK. If
+     * it doesn't, display a dialog box that enables  users to download the APK from
+     * the Google Play Store or enable it in the device's system settings.
+     */
+
+    private boolean checkPlayServices() {
+        GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
+        int resultCode = apiAvailability.isGooglePlayServicesAvailable(this);
+        if (resultCode != ConnectionResult.SUCCESS) {
+            if (apiAvailability.isUserResolvableError(resultCode)) {
+                apiAvailability.getErrorDialog(this, resultCode, PLAY_SERVICES_RESOLUTION_REQUEST)
+                        .show();
+            } else {
+                Log.i(TAG, "This device is not supported by Google Play Services.");
+                ToastNotify("This device is not supported by Google Play Services.");
+                finish();
+            }
+            return false;
+        }
+        return true;
+    }
+    public void registerWithNotificationHubs()
+    {
+        if (checkPlayServices()) {
+            // Start IntentService to register this application with FCM.
+            Intent intent = new Intent(this, RegistrationIntentService.class);
+            startService(intent);
+        }
     }
 
     private void ingresoRepartidor() {
@@ -144,6 +186,40 @@ ImageView ImagenLogo;
         editor.putString("pass",pass);
         editor.putString("name",nombre);
         editor.commit();
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        isVisible = true;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        isVisible = false;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        isVisible = true;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        isVisible = false;
+    }
+
+    public void ToastNotify(final String notificationMessage) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(IngresoUsuario.this, notificationMessage, Toast.LENGTH_LONG).show();
+                TextView helloText = (TextView) findViewById(R.id.text_hello);
+                helloText.setText(notificationMessage);
+            }
+        });
     }
 
 
