@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Vista.Control_Mailbox"
+    tools:context=".Vista.FuncionesRepartidor"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="20dp">>
 
     <ImageView
         android:id="@+id/ImagenLogo"
@@ -31,14 +31,14 @@
         android:padding="20dp">
 
         <Button
-            android:id="@+id/btnOn"
+            android:id="@+id/btnScann"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/btn_border"
             android:fontFamily="sans-serif-medium"
-            android:text="Abrir Buzón"
+            android:text="escanear Código QR"
             android:textColor="@color/cardview_light_background" />
 
         <Button
@@ -47,13 +47,11 @@
             android:layout_height="wrap_content"
             android:background="@drawable/btn_border"
 
-            android:text="Cerrar Buzón"
+            android:text="Cualquier cosa"
             android:textColor="@color/cardview_light_background"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="5dp"
             android:layout_gravity="right"
             />
     </LinearLayout>
-
-
 </LinearLayout>

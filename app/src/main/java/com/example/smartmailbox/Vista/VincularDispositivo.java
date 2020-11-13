@@ -42,7 +42,7 @@ public class VincularDispositivo extends AppCompatActivity {
         // Inicializa la array que contendra la lista de los dispositivos bluetooth vinculados
         mPairedDevicesArrayAdapter = new ArrayAdapter(this, R.layout.activity_blue_tooth);
         // Presenta los disposisitivos vinculados en el ListView
-        lstLista = (ListView) findViewById(R.id.lstLista);
+        lstLista = findViewById(R.id.lstLista);
         lstLista.setAdapter(mPairedDevicesArrayAdapter);
         lstLista.setOnItemClickListener(mDeviceClickListener);
         // Obtiene el adaptador local Bluetooth adapter
