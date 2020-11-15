@@ -150,14 +150,17 @@ ImageView ImagenLogo;
         String nick = edtUsuario.getEditText().getText().toString();
         String pass = edtContraseña.getEditText().getText().toString();
       String nombre=null;
+      String idUsuario =null;
         DbConnection conn = new DbConnection();
         try {
             Statement stm = conn.conexion().createStatement();
-            ResultSet rs = stm.executeQuery("SELECT nombre_usuario FROM Usuario where alias_usuario='" + nick + "' and contrasena_usuario='" + pass + "'");
+            ResultSet rs = stm.executeQuery("SELECT nombre_usuario,id_usuario FROM Usuario where alias_usuario='" + nick + "' and contrasena_usuario='" + pass + "'");
             rs.next();
             String result = rs.getString("NOMBRE_USUARIO");
-            if (result != null){
+            String result2 = rs.getString("ID_USUARIO");
+            if (result != null && result2 !=null){
                 nombre=result;
+                idUsuario=result2;
                 rs.close();
                 stm.close();
             }else{
@@ -175,9 +178,12 @@ ImageView ImagenLogo;
 
 
         SharedPreferences.Editor editor=preferences.edit();
+
         editor.putString("nick",nick);
         editor.putString("pass",pass);
         editor.putString("name",nombre);
+        editor.putString("id",idUsuario);
+
         editor.commit();
     }
     @Override

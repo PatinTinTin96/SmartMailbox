@@ -11,15 +11,22 @@ import android.widget.EditText;
 import com.example.smartmailbox.R;
 
 public class Wifi_Connection extends AppCompatActivity {
-EditText edtIp;
-Button btnConectar;
+Button btnVincular,btnAccion;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wifi__connection);
-        edtIp=findViewById(R.id.edtIp);
-        btnConectar=findViewById(R.id.btnConnect);
-        btnConectar.setOnClickListener(new View.OnClickListener() {
+        btnVincular=findViewById(R.id.btnVincular);
+        btnAccion=findViewById(R.id.btnAccion);
+
+        btnAccion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                acc();
+            }
+        });
+        btnVincular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 connect();
@@ -28,8 +35,13 @@ Button btnConectar;
 
     }
 
+    private void acc() {
+        Intent mb = new Intent(this, Control_Mailbox.class);
+        startActivity(mb);
+    }
+
     private void connect() {
-        Intent led = new Intent(this, Control_Mailbox.class);
+        Intent led = new Intent(this, LectorQrUsuario.class);
         startActivity(led);
     }
 

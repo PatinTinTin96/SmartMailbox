@@ -1,24 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Vista.Wifi_Connection">
+    tools:context=".Vista.Wifi_Connection"
+    android:orientation="vertical"
+    android:padding="20dp">
 
 
-    <EditText
-        android:id="@+id/edtIp"
+    <ImageView
+        android:id="@+id/ImagenLogo"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:background="@drawable/logo3"
+        />
+
+    <TextView
+        android:id="@+id/TextoBanner"
+        android:textSize="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
-    <Button
-        android:id="@+id/btnConnect"
-        android:layout_marginTop="80dp"
+        android:text="Gestión Buzón"
+        android:fontFamily="@font/bangers"
+        />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Conectar"/>
+        android:orientation="vertical"
+        android:padding="20dp">
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/btnVincular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/btn_border"
+            android:fontFamily="sans-serif-medium"
+            android:text="Escanear Código QR"
+            android:textColor="@color/cardview_light_background" />
+
+        <Button
+            android:id="@+id/btnAccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/btn_border"
+            android:fontFamily="sans-serif-medium"
+            android:text="Accionar Buzón"
+            android:textColor="@color/cardview_light_background" />
+    </LinearLayout>
+    </LinearLayout>
