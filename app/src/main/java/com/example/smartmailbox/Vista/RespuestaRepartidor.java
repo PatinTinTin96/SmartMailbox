@@ -59,6 +59,8 @@ public class RespuestaRepartidor extends AppCompatActivity {
                     startActivity(buzon);
                 }else{
                     Toast.makeText(getApplicationContext(), " El buzon no existe", Toast.LENGTH_LONG).show();
+                    Intent buzon = new Intent(RespuestaRepartidor.this, LectorQr.class);
+                    startActivity(buzon);
                 }
 
             }
