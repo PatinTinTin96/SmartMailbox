@@ -31,6 +31,7 @@ public class ControlBuzon {
     public static boolean asociarUsuario( int idUsuario, String nrSerie){
 
         try {
+       
             PreparedStatement stm = conn.conexion().prepareStatement("update buzon set id_usuario ='" +idUsuario  + "' where nr_serie = '"+nrSerie+"' ");
 
             stm.executeUpdate();

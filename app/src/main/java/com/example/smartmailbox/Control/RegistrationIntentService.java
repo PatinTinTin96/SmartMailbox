@@ -83,7 +83,8 @@ public class RegistrationIntentService extends IntentService {
             }
 
             else {
-                resultString = "Previously Registered Successfully - RegId : " + regID;
+               // resultString = "Previously Registered Successfully - RegId : " + regID;
+                resultString = "Conectado";
             }
         } catch (Exception e) {
             Log.e(TAG, resultString="Failed to complete registration", e);

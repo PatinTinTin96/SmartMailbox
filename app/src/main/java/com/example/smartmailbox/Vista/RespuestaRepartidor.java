@@ -12,15 +12,15 @@ import android.widget.Toast;
 import com.example.smartmailbox.Control.ControlBuzon;
 import com.example.smartmailbox.R;
 
-public class Respuesta extends AppCompatActivity {
+public class RespuestaRepartidor extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_respuesta);
+        setContentView(R.layout.activity_respuesta_repartidor);
         Bundle parametros = this.getIntent().getExtras();
         if(parametros !=null){
-          String datos = parametros.getString("serie");
+            String datos = parametros.getString("serie");
             cargarpreferencias();
             alert(datos);
 
@@ -29,11 +29,12 @@ public class Respuesta extends AppCompatActivity {
 
     }
 
+
     private void alert(final String datos) {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        alertDialog.setTitle("Asociar dispositivo a su cuenta");
+        alertDialog.setTitle("Operar Buzón");
         alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-        alertDialog.setMessage("¿Desea asociar dispositivo?");
+        alertDialog.setMessage("¿Desea operar el buzón?");
 
         alertDialog.setCancelable(false);
         alertDialog.setPositiveButton("Sí", new DialogInterface.OnClickListener()
@@ -46,19 +47,19 @@ public class Respuesta extends AppCompatActivity {
                 String name = preferences.getString("name","No data");
                 String id = preferences.getString("id","No data");
 
-               if (ControlBuzon.buscarBuzon(datos)!=null){
-                  //if(ControlBuzon.asociarUsuario(Integer.parseInt(id),datos)==true){
+                if (ControlBuzon.buscarBuzon(datos)!=null){
+                    //if(ControlBuzon.asociarUsuario(Integer.parseInt(id),datos)==true){
                     //  Toast.makeText(getApplicationContext(), " Asociación exitosa", Toast.LENGTH_LONG).show();
                     //  Intent buzon = new Intent(Respuesta.this, Wifi_Connection.class);
                     //  startActivity(buzon);
-                  // }
-                 // Toast.makeText(getApplicationContext(), "Asociación fallida", Toast.LENGTH_LONG).show();
-                   Toast.makeText(getApplicationContext(), " El buzon existe", Toast.LENGTH_LONG).show();
-                   Intent buzon = new Intent(Respuesta.this, Control_Mailbox.class);
-                   startActivity(buzon);
-               }else{
-                   Toast.makeText(getApplicationContext(), " El buzon no existe", Toast.LENGTH_LONG).show();
-               }
+                    // }
+                    // Toast.makeText(getApplicationContext(), "Asociación fallida", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), " El buzon existe", Toast.LENGTH_LONG).show();
+                    Intent buzon = new Intent(RespuestaRepartidor.this, Control_Mailbox.class);
+                    startActivity(buzon);
+                }else{
+                    Toast.makeText(getApplicationContext(), " El buzon no existe", Toast.LENGTH_LONG).show();
+                }
 
             }
         });
@@ -66,7 +67,7 @@ public class Respuesta extends AppCompatActivity {
         {
             public void onClick(DialogInterface dialog, int which)
             {
-                Intent buzon = new Intent(Respuesta.this, Wifi_Connection.class);
+                Intent buzon = new Intent(RespuestaRepartidor.this, Wifi_Connection.class);
                 startActivity(buzon);
             }
         });
@@ -87,5 +88,4 @@ public class Respuesta extends AppCompatActivity {
 
 
     }
-
 }

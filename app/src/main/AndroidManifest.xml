@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Vista.Respuesta"/>
-
+        <activity android:name=".Vista.RespuestaRepartidor"></activity>
+        <activity android:name=".Vista.Respuesta" />
         <activity android:name=".Vista.LectorQrUsuario" />
         <activity android:name=".Vista.LectorQr" />
         <activity android:name=".Vista.FuncionesRepartidor" />
@@ -50,13 +50,13 @@
             </intent-filter>
         </service>
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

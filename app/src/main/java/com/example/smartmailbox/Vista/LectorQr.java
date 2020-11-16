@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
@@ -41,6 +42,9 @@ public class LectorQr extends AppCompatActivity {
                     @Override
                     public void run() {
                         Toast.makeText(LectorQr.this, result.getText(), Toast.LENGTH_SHORT).show();
+                        Intent v = new Intent(LectorQr.this, RespuestaRepartidor.class);
+                        v.putExtra("serie", result.getText().toString());
+                        startActivity(v);
 
                     }
                 });
